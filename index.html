@@ -1,103 +1,100 @@
 <html>
 	<head>
         <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <link href="style/style.css" type="text/css"  rel="stylesheet">
 		<script type="text/javascript" src="caman.full.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	</head>
+        <script type="text/javascript" src="index.js"></script>
+        <style></style>
+    </head>
 	<body>
         <div class="body-div">
+            <h1>CamanJS Photo Manipulator</h1>
             <div class="sliders">
                 <div id="imageEditor">
 
-                    <label for="br">Brightness</label>
+                    <label id="br-label" for="br">Brightness:0</label>
                     <input id="br" name="br" type="range" min=-100 max=100 value=0>
 
-
-                    <label for="vb">Vibrance</label>
+                    <label id="vb-label" for="vb">Vibrance:0</label>
                     <input id="vb" name="vb" type="range" min=-100 max=100 value=0>
 
-                    <label for="h">Hue</label>
+                    <label id="h-label" for="h">Hue:0</label>
                     <input id="h" name="h" type="range" min=0 max=100 value=0>
 
-                    <label for="gam">Gamma</label>
+                    <label id="gam-label" for="gam">Gamma:0</label>
                     <input id="gam" name="gam" type="range" min=0 max=5 value=0>
 
-                    <label for="cli">Clip</label>
+                    <label id="cli-label" for="cli">Clip:0</label>
                     <input id="cli" name="cli" type="range" min=0 max=100 value=0>
 
-                    <label for="ct">Contrast</label>
+                    <label id="ct-label" for="ct">Contrast:0</label>
                     <input id="ct" name="ct" type="range" min=-100 max=100 value=0>
 
-                    <label for="saturate">Saturation</label>
+                    <label id="saturate-label" for="saturate">Saturation:0</label>
                     <input id="saturate" name="saturate" type="range" min=-100 max=100 value=0>
 
-                    <label for="ex">Exposure</label>
+                    <label id="ex-label" for="ex">Exposure:0</label>
                     <input id="ex" name="ex" type="range" min=-100 max=100 value=0>
 
-                    <label for="sep">Sepia</label>
+                    <label id="sep-label" for="sep">Sepia:0</label>
                     <input id="sep" name="sep" type="range" min=0 max=100 value=0>
 
-                    <label for="n">Noise</label>
+                    <label id="n-label" for="n">Noise:0</label>
                     <input id="n" name="n" type="range" min=0 max=100 value=0>
+                    &nbsp;
                     &nbsp;
                     <button id="resetbtn" class="btn btn-success">Reset</button>
                 </div>
             </div>
 
-                <!--<div id="ImageContainer">-->
-                    <canvas id="canvas">
-                        <!--<img id="my-image" src="#" alt="Upload Your Image to Start">-->
-                    </canvas>
-                <!--</div>-->
+            <canvas id="canvas"></canvas>
 
-                <br>
-                &nbsp;
+            <br>
+            &nbsp;
 
-                <div class="buttons-div">
-                    <button id="brightnessbtn" class="btn btn-primary">Brightness</button>
-                    <button id="noisebtn" class="btn btn-primary">Noise</button>
-                    <button id="sepiabtn" class="btn btn-primary">Sepia</button>
-                    <button id="contrastbtn" class="btn btn-primary">Contrast</button>
-                    <button id="colorbtn" class="btn btn-primary">Colorize</button>
+            <div class="buttons-div">
+                <button id="brightnessbtn" class="btn btn-primary">Brightness</button>
+                <button id="noisebtn" class="btn btn-primary">Noise</button>
+                <button id="sepiabtn" class="btn btn-primary">Sepia</button>
+                <button id="contrastbtn" class="btn btn-primary">Contrast</button>
+                <button id="colorbtn" class="btn btn-primary">Colorize</button>
+                <button id="vintagebtn" class="btn btn-primary">Vintage</button>
+                <button id="lomobtn" class="btn btn-primary">Lomo</button>
+                <button id="embossbtn" class="btn btn-primary">Emboss</button>
 
-                            <button id="vintagebtn" class="btn btn-primary">Vintage</button>
-                            <button id="lomobtn" class="btn btn-primary">Lomo</button>
-                            <button id="embossbtn" class="btn btn-primary">Emboss</button>
-                            <button id="tiltshiftbtn" class="btn btn-primary">Tilt Shift</button>
-                            <button id="radialblurbtn" class="btn btn-primary">Radial Blur</button>
-                            <button id="edgeenhancebtn" class="btn btn-primary">Edge Enhance</button>
+                <button id="tiltshiftbtn" class="btn btn-primary">Tilt Shift</button>
+                <button id="radialblurbtn" class="btn btn-primary">Radial Blur</button>
+                <button id="edgeenhancebtn" class="btn btn-primary">Edge Enhance</button>
+                <button id="posterizebtn" class="btn btn-primary">Posterize</button>
+                <button id="claritybtn" class="btn btn-primary">Clarity</button>
+                <button id="orangepeelbtn" class="btn btn-primary">Orange Peel</button>
+                <button id="sincitybtn" class="btn btn-primary">Sin City</button>
 
-                            <button id="posterizebtn" class="btn btn-primary">Posterize</button>
-                            <button id="claritybtn" class="btn btn-primary">Clarity</button>
-                            <button id="orangepeelbtn" class="btn btn-primary">Orange Peel</button>
-                            <button id="sincitybtn" class="btn btn-primary">Sin City</button>
-                            <button id="sunrisebtn" class="btn btn-primary">Sun Rise</button>
-                            <button id="crossprocessbtn" class="btn btn-primary">Cross Process</button>
+                <button id="sunrisebtn" class="btn btn-primary">Sun Rise</button>
+                <button id="crossprocessbtn" class="btn btn-primary">Cross Process</button>
+                <button id="hazydaysbtn" class="btn btn-primary">Hazy</button>
+                <button id="lovebtn" class="btn btn-primary">Love</button>
+                <button id="grungybtn" class="btn btn-primary">Grungy</button>
+                <button id="jarquesbtn" class="btn btn-primary">Jarques</button>
+                <button id="pinholebtn" class="btn btn-primary">Pin Hole</button>
+                <button id="oldbootbtn" class="btn btn-primary">Old Boot</button>
 
-                            <button id="hazydaysbtn" class="btn btn-primary">Hazy</button>
-                            <button id="lovebtn" class="btn btn-primary">Love</button>
-                            <button id="grungybtn" class="btn btn-primary">Grungy</button>
-                            <button id="jarquesbtn" class="btn btn-primary">Jarques</button>
-                            <button id="pinholebtn" class="btn btn-primary">Pin Hole</button>
-                            <button id="oldbootbtn" class="btn btn-primary">Old Boot</button>
-                            <button id="glowingsunbtn" class="btn btn-primary">Glow Sun</button>
+                <button id="glowingsunbtn" class="btn btn-primary">Glow Sun</button>
+                <button id="hdrbtn" class="btn btn-primary">HDR Effect</button>
+                <button id="oldpaperbtn" class="btn btn-primary">Old Paper</button>
+                <button id="pleasantbtn" class="btn btn-primary">Pleasant</button>
+            </div>
+            <br>
+            &nbsp;
 
-                            <button id="hdrbtn" class="btn btn-warning">HDR Effect</button>
-                            <button id="oldpaperbtn" class="btn btn-warning">Old Paper</button>
-                            <button id="pleasantbtn" class="btn btn-warning">Pleasant</button>
-                            <button id="savebtn" class="btn btn-success"><a id="downloadLnk" download="YourFileName.jpg"></a>Save Image</button>
-
-                </div>
-                <br>
-                &nbsp;
-
+            <div class="up-down-load-div">
                 <div class="upload-img-button-div">
+                    <label id="upload-btn" for="imgInput">Upload Your Image to Start</label>
                     <input type="file" id="imgInput" />
                 </div>
-
-
+                <a id="downloadLnk" ><button id="savebtn" class="btn btn-success">Save Image</button></a>
+            </div>
         </div>
-        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
